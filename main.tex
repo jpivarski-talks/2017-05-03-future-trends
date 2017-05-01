@@ -187,9 +187,78 @@ credit card fraud detection
 \end{itemize}
 \end{frame}
 
+\begin{frame}{CMS analysis on Spark}
+\vfill
+\begin{itemize}
+\item Oliver Gutsche, Matteo Cremonesi, Cristina Su\'arez (Fermilab) wanted to try their CMS dark matter search on Spark.
+\item My first project with DIANA-HEP: I joined to plow through technical issues before the analysts hit them.
 
+\vfill
+\begin{center}
+\includegraphics[width=0.75\linewidth]{snowplow.jpg}
+\end{center}
+\end{itemize}
+\end{frame}
 
+\begin{frame}{Problems!}
+\Large
 
+\begin{enumerate}\setlength{\itemsep}{0.5 cm}
+\item Need a Spark cluster.
+
+\item Spark, like most ``Big Data'' tools, runs on the Java Virtual Machine (JVM), not C++, and doesn't recognize our ROOT data format.
+
+\item HEP analysis tools like histograms don't have the right API to fit Spark's functional interface.
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{\#1. Need a Spark cluster}
+Several other groups are interested in this and were willing to share resources in exchange for having us test their system.
+
+\begin{itemize}
+\item Alexey Svyatkovskiy (Princeton) was active in the group, helping us use the Princeton BigData cluster.
+\item Saba Sehrish and Jim Kowalkowski (Fermilab) modified the analysis for NERSC.
+\item Maria Girone, Luca Canali, Kacper Surdy (CERN), and Vaggelis Motesnitsalis (Intel) are now setting up a Data Reduction Facility at CERN as an OpenLab project.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\#2. Getting data from ROOT files into JVM}
+\vspace{0.3 cm}
+\small
+
+\textcolor{darkblue}{\normalsize A run-down of the attempted solutions\ldots}
+\begin{enumerate}
+\item \textcolor{darkblue}{Java Native Interface (JNI)} \\ No! This ought to be the right solution, but Java \\ and ROOT are both large, complex applications \\ with their own memory management: couldn't keep \\ them from interfering (segmentation faults).
+
+\vspace{-2.2 cm}
+\hfill \includegraphics[height=1.65 cm]{root-spark.pdf}
+
+\vspace{0.5 cm}
+\item \textcolor{darkblue}{\normalsize Python as glue: PyROOT and PySpark in the same process}
+
+\hfill \includegraphics[height=1.65 cm]{pyroot-pyspark.pdf}
+
+\vspace{-1.8 cm}
+PySpark is a low-performance \\ solution: all data must be passed \\ over a text-based socket and \\ interpreted by Python.
+
+\item \textcolor{darkblue}{\normalsize Convert to a Spark-friendly format, like Apache Avro}
+
+We used this for a year. Efficient after conversion, but that conversion step is awkward. Avro's C library is difficult to deploy.
+
+\item \textcolor{darkblue}{\normalsize Use pure Java code to read ROOT files}
+
+What we do now. It's worth it.
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+
+\only<1>{{\mbox{\hspace{-1 cm}\includegraphics[width=1.2\linewidth]{rootio-screenshot.png}}}}
+\only<2>{{\mbox{\hspace{-1 cm}\includegraphics[width=1.2\linewidth]{root4j.png}}}}
+
+\end{frame}
 
 
 \end{document}
