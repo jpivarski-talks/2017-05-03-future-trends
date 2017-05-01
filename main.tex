@@ -60,7 +60,7 @@
   morestring=[b]"""
 }
 
-\title[2017-05-03-future-trends]{Lowering Boundaries between Data Analysis Ecosystems}
+\title[2017-05-03-future-trends]{Lowering boundaries between \\ data analysis ecosystems}
 \author{Jim Pivarski}
 \institute{Princeton University -- DIANA Project}
 \date{May 3, 2017}
@@ -82,7 +82,88 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{First page}
+\begin{frame}{Data analysis ecosystems}
+\includegraphics[width=\linewidth]{separation.png}
 \end{frame}
+
+\begin{frame}{}
+\begin{center}
+\large \textcolor{darkblue}{Physicists developed their own software for a good reason:}
+
+\textcolor{darkblue}{no one else was tackling such large problems.}
+\end{center}
+\end{frame}
+
+\begin{frame}{Not so today\ldots}
+\vspace{0.5 cm}\includegraphics[width=0.75\linewidth]{cern_petabytes.png}
+
+\vspace{-6.4 cm}\only<2>{\hfill \includegraphics[width=0.75\linewidth]{aws-snowmobile.jpg}}\vspace{6.4 cm}
+\end{frame}
+
+\begin{frame}{Case in point: ROOT versus Spark}
+\vfill
+\textcolor{darkblue}{Relative rate of web searches:}
+
+\includegraphics[width=\linewidth]{root-spark-google-trends.png}
+
+\vfill
+\textcolor{darkblue}{Question-and-answer sites:}
+\begin{itemize}
+\item RootTalk: 14,399 threads in 1997--2012 (15 years)
+\item StackOverflow questions tagged \#spark: 26,155 in the 3.3 years it has existed.
+\end{itemize}
+
+\vfill
+\textcolor{darkblue}{More users to talk to; more developers adding features/fixing bugs.}
+\end{frame}
+
+\begin{frame}{Building bridges: low effort-to-reward}
+\vspace{0.5 cm}
+\begin{center}
+\hspace{1 cm}\only<1>{\includegraphics[width=0.75\linewidth]{effort0.pdf}}\only<2>{\includegraphics[width=0.75\linewidth]{effort.pdf}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Who am I?}
+\begin{columns}[t]
+\column{0.55\linewidth}
+\begin{columns}
+\column{0.4\linewidth}
+Jim Pivarski
+\column{0.2\linewidth}
+\hspace{-1.3 cm}\includegraphics[width=\linewidth]{faces/jim_pivarski.png}
+\end{columns}
+
+\begin{itemize}
+\item 5 years CLEO (9 GeV $e^+e^-$)
+\item 5 years CMS (7 TeV $pp$)
+\item \only<1>{5 years Open Data Group}\only<2>{\mbox{\textcolor{darkblue}{5 years Open Data Group \hspace{0.4 cm}$\longrightarrow$\hspace{-3 cm}}}}
+\item 1+ years Project DIANA-HEP
+\end{itemize}
+
+\column{0.5\linewidth}
+\uncover<2>{\textcolor{darkblue}{
+hyperspectral imagery \\
+automobile traffic \\
+network security \\
+Twitter sentiment \\
+Google n-grams \\
+DNA sequence analysis \\
+credit card fraud detection
+}}
+
+\uncover<2>{\Large\textcolor{darkblue}{ and ``Big Data'' tools}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+\only<1>{\mbox{\hspace{-1 cm}\includegraphics[width=1.2\linewidth]{diana-hep.png}}}
+\only<2>{\mbox{\hspace{-1 cm}\includegraphics[width=1.2\linewidth]{diana-hep2.png}}}
+
+\end{frame}
+
+
+
 
 \end{document}
