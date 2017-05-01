@@ -100,9 +100,9 @@
 \vspace{-6.4 cm}\only<2>{\hfill \includegraphics[width=0.75\linewidth]{aws-snowmobile.jpg}}\vspace{6.4 cm}
 \end{frame}
 
-\begin{frame}{Case in point: ROOT versus Spark}
+\begin{frame}{Case in point: ROOT and Spark}
 \vfill
-\textcolor{darkblue}{Relative rate of web searches:}
+\textcolor{darkblue}{Relative rate of web searches (Google Trends):}
 
 \includegraphics[width=\linewidth]{root-spark-google-trends.png}
 
@@ -162,6 +162,32 @@ credit card fraud detection
 \only<2>{\mbox{\hspace{-1 cm}\includegraphics[width=1.2\linewidth]{diana-hep2.png}}}
 
 \end{frame}
+
+\begin{frame}{Outline of this talk}
+\Large
+\begin{description}\setlength{\itemsep}{0.5 cm}
+\item[Data plumbing:] a CMS analysis in Apache Spark
+\item[Histogrammar:] HEP-like tools in a functional world
+\item[Femtocode:] the ``query system'' concept in HEP
+\end{description}
+\end{frame}
+
+\begin{frame}{Apache Spark}
+\vspace{0.5 cm}
+\includegraphics[width=\linewidth]{hadoop-versus-spark.png}
+
+\vfill
+\includegraphics[width=0.25\linewidth]{spark.png}
+
+\begin{itemize}
+\item Like Hadoop in that it implements map-reduce, but these are just two out of many functionals.
+\item Not a competitor: can run on a Hadoop cluster.
+\item Primary interface is a console: each command does a distributed job and returns a result.
+\item User controls in-memory cache on the cluster, effectively getting an $\mathcal{O}(\mbox{TB})$ working space in RAM.
+\end{itemize}
+\end{frame}
+
+
 
 
 
