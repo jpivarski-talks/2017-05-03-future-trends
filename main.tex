@@ -463,10 +463,10 @@ Bin(numBins, low, high, lambda event: event.x,
         nonzero = Fraction(lambda event: event.y > 0,
                            Count()),
         mean = Average(lambda event: event.y),
-        max = Maximize(lambda event: event.y)))
+        maximum = Maximize(lambda event: event.y)))
 \end{minted}
 \begin{itemize}
-\item fills a {\it directory} of ``nonzero,'' ``mean,'' and ``max'' in each {\it bin} of x.
+\item \mbox{fills a {\it directory} of ``nonzero,'' ``mean,'' and ``maximum'' {\it in each bin.}\hspace{-1 cm}}
 \end{itemize}\end{onlyenv}
 \end{frame}
 
