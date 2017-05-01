@@ -183,7 +183,7 @@ credit card fraud detection
 \begin{itemize}
 \item Like Hadoop in that it implements map-reduce, but these are just two out of many functionals.
 \item<2-> Not a competitor to Hadoop: can run on a Hadoop cluster.
-\item<3-> Primary interface is a commandline console. Each command does a distributed job and returns a result, while-U-wait\texttrademark!
+\item<3-> Primary interface is a commandline console. Each command does a distributed job and returns a result, While-U-Wait\texttrademark.
 \item<4-> User controls in-memory cache on the cluster, effectively getting an $\mathcal{O}(\mbox{TB})$ working space in RAM.
 \end{itemize}
 \end{frame}
@@ -276,7 +276,7 @@ Viktor Khristenko
 
 \begin{frame}[fragile]{Problem \#3. Histogram interface}
 \vspace{0.4 cm}
-\textcolor{darkblue}{This is how Spark processes data:}
+\textcolor{darkblue}{This is how Spark processes data (functional programming):}
 
 \small
 \begin{minted}{scala}
@@ -289,7 +289,7 @@ val final_counter =
 \end{minted}
 
 \begin{uncoverenv}<2->
-Read as a chain from top to bottom:
+Read as a pipeline from top to bottom:
 \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
 \item Start with {\tt\small dataset} on the cluster somewhere.
 \item Filter it with {\tt\small event.goodness > 2}.
